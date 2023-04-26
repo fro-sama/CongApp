@@ -1,0 +1,50 @@
+﻿@page
+@model CongApp.Pages.TaskModel
+@{
+}
+
+<div class="container">
+    <form>
+        <h1>Tasks</h1>
+        <!-- ASSIGNMENT -->
+        <div class="row">
+            <div class="input-group mb-3">
+                <span class="input-group-text">Assignment</span>
+                <select class="form-select">
+                    <option>Microphone Servant</option>
+                    <option>Paragraph Reader</option>
+                </select>
+            </div>
+        </div>
+        <!-- ASSIGNEE -->
+        <div class="row">
+            <div class="input-group mb-3">
+                <span class="input-group-text">Assignee</span>
+                <select class="form-select">
+                    <option>Trae Young</option>
+                    <option>Randy Sagum</option>
+                    <option>Ronald Sagum</option>
+                </select>
+            </div>
+        </div>
+        <!-- PARTNER -->
+        <div class="row">
+            <div class="input-group mb-3">
+                <span class="input-group-text">Partner</span>
+                <select class="form-select">
+                    <option>Trae Young</option>
+                    <option>Randy Sagum</option>
+                    <option>Ronald Sagum</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- SAVE/CANCEL -->
+        <div class="row">
+            <div class="btn-group">
+                <button type="button" class="btn btn-success">Save</button>
+                <button type="button" class="btn btn-primary">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>
