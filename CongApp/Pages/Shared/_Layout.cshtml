@@ -9,26 +9,23 @@
 <link rel="stylesheet" href="style.css" />
 
 <head>
-    <title>Test</title>
+    <title>CongApp</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-sm bg-light navbar-light">
         <div class="container-fluid">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" asp-page="Index">Home</a>
+                    <a class="nav-link active" asp-page="/Index">Home</a>
               
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" asp-page="Meeting">Meeting</a>
+                    <a class="nav-link active" asp-page="/admin/meeting/AddMeeting">Meeting</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" asp-page="Task">Task</a>
+                    <a class="nav-link active" asp-page="/admin/task/task">Task</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
-            </ul>
+             </ul>
         </div>
     </nav>
     @RenderBody()

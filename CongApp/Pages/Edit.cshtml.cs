@@ -3,10 +3,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CongApp.Pages
 {
-    public class IndexModel : PageModel
+    public class EditModel : PageModel
     {
-        public void OnGet()
+
+
+        public void OnGet(Guid id)
         {
+
         }
     }
 }
