@@ -1,0 +1,44 @@
+﻿@page
+@model AddMeetingModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="container">
+    <form method="post">
+        <h1>Meeting</h1>
+        <!-- MEETING TYPE -->
+        <div class="row">
+            <div class="input-group mb-3">
+                <span class="input-group-text">Type</span>
+                <select class="form-select" asp-for="AddNewMeetingRequest.Type">
+                    <option>Midweek</option>
+                    <option>Weekend</option>
+                </select>
+            </div>
+        </div>
+        <!-- DATE SELECTION -->
+        <div class="row">
+            <div class="input-group mb-3">
+                <span class="input-group-text">Date</span>
+                <input type="date" class="form-control" placeholder="Date" asp-for="AddNewMeetingRequest.Date" />
+            </div>
+        </div>
+        <!-- WEEK RANGE -->
+        <div class="input-group mb-3">
+            <span class="input-group-text">Week of</span>
+            <select class="form-select" asp-for="AddNewMeetingRequest.Week">
+                <option>April 24-30</option>
+                <option>May 1-7</option>
+            </select>
+        </div>
+
+        <!-- SAVE/CANCEL -->
+        <div class="row">
+            <div class="btn-group">
+                <button type="submit" class="btn btn-success">Save</button>
+                <button type="button" class="btn btn-primary">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>
