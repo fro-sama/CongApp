@@ -1,15 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CongApp.Pages
+namespace CongApp.Pages.Edit
 {
-    public class EditModel : PageModel
+    public class EditMeetingModel : PageModel
     {
-
-
-        public void OnGet(Guid id)
+        public void OnGet()
         {
-
         }
     }
 }

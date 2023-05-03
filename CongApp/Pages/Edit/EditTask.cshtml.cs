@@ -1,12 +1,15 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CongApp.Pages
+namespace CongApp.Pages.Edit
 {
-    public class TaskModel : PageModel
+    public class EditTaskModel : PageModel
     {
+
+
         public void OnGet()
         {
+
         }
     }
 }

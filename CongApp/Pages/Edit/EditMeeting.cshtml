@@ -1,17 +1,16 @@
 ﻿@page
-@model AddMeetingModel
+@model CongApp.Pages.Edit.EditMeetingModel
 @{
-    ViewData["Title"] = "Home page";
 }
 
 <div class="container">
     <form method="post">
-        <h1 class="mt-3">Add Meeting</h1>
+        <h1 class="mt-3">Edit Meeting</h1>
         <!-- MEETING TYPE -->
         <div class="row">
             <div class="input-group mb-3">
                 <span class="input-group-text">Type</span>
-                <select class="form-select" asp-for="AddNewMeetingRequest.Type">
+                <select class="form-select"> <!-- NO NAME -->
                     <option>Midweek</option>
                     <option>Weekend</option>
                 </select>
@@ -21,13 +20,13 @@
         <div class="row">
             <div class="input-group mb-3">
                 <span class="input-group-text">Date</span>
-                <input type="date" class="form-control" placeholder="Date" asp-for="AddNewMeetingRequest.Date" />
+                <input type="date" class="form-control" placeholder="Date" /> <!-- NO NAME -->
             </div>
         </div>
         <!-- WEEK RANGE -->
         <div class="input-group mb-3">
             <span class="input-group-text">Week of</span>
-            <select class="form-select" asp-for="AddNewMeetingRequest.Week">
+            <select class="form-select"> <!-- NO NAME -->
                 <option>April 24-30</option>
                 <option>May 1-7</option>
             </select>
@@ -36,7 +35,7 @@
         <!-- SAVE/CANCEL -->
         <div class="row">
             <div class="btn-group">
-                <button type="submit" class="btn btn-success">Save</button>
+                <button type="submit" class="btn btn-success">Save Changes</button>
                 <button type="button" class="btn btn-primary">Cancel</button>
             </div>
         </div>
