@@ -9,8 +9,8 @@ namespace CongApp.Data
         {
         }
 
-        public DbSet<MeetingModel> Meetings { get; set; }
+        public DbSet<Meeting> Meetings { get; set; }
 
-        public DbSet<TaskModel> Tasks { get; set; }
+        public DbSet<Assignment> Assignments { get; set; }
     }
 }

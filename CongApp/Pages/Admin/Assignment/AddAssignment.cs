@@ -1,6 +1,6 @@
 ﻿namespace CongApp.Pages.Admin.Task
 {
-    public class AddTask
+    public class AddAssignment
     {
         public string? Assignment { get; set; }
         public string? Assignee { get; set; }
