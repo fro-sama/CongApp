@@ -1,7 +1,14 @@
+using CongApp.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+//builder.Services.AddDbContext<CongAppDbContext>(options =>
+//options.UseSqlServer(builder.Configuration.GetConnectionString("CongAppConnectionString"))
+//);
 
 var app = builder.Build();
 
