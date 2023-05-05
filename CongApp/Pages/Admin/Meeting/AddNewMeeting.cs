@@ -1,4 +1,4 @@
-﻿namespace CongApp.Pages.Admin.Meeting
+﻿namespace CongApp.Pages
 {
     public class AddNewMeeting
     {

@@ -2,7 +2,7 @@
 
 namespace CongApp.Models
 {
-    public class MeetingModel
+    public class Meeting
     {
         public Guid Id { get; set; }
 

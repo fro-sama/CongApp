@@ -1,9 +1,9 @@
 ﻿namespace CongApp.Models
 {
-    public class TaskModel
+    public class Assignment
     {
         public Guid Id { get; set; }
-        public string? Assignment { get; set; }
+        public string? Task { get; set; }
         public string? Assignee { get; set; }
         public string? Partner { get; set; }
 

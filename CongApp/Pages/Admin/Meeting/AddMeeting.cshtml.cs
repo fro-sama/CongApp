@@ -6,11 +6,12 @@ namespace CongApp.Pages
 {
     public class AddMeetingModel : PageModel
     {
-        private readonly ILogger<AddMeetingModel> _logger;
+        private readonly CongApp.Data.CongAppDbContext _context;
 
-        public AddMeetingModel(ILogger<AddMeetingModel> logger)
+        public AddMeetingModel(CongApp.Data.CongAppDbContext context)
         {
-            _logger = logger;
+            _context = context;
+            AddNewMeetingRequest = new AddNewMeeting();
         }
 
         [BindProperty]
@@ -21,9 +22,16 @@ namespace CongApp.Pages
 
         }
 
-        public void OnPost() 
+        public async Task<IActionResult> OnPost() 
         {
-
+            _context.Meetings.Add(
+                new Models.Meeting { 
+                    Date = AddNewMeetingRequest.Date,
+                    Type = AddNewMeetingRequest.Type,   
+                    Week = AddNewMeetingRequest.Week,   
+            });
+            await _context.SaveChangesAsync();
+            return RedirectToPage("Index");
         }
     }
 }
