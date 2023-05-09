@@ -1,7 +1,10 @@
-﻿namespace CongApp.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace CongApp.Models
 {
     public class Assignment
     {
+        [Key]
         public Guid Id { get; set; }
         public string? Task { get; set; }
         public string? Assignee { get; set; }

@@ -1,14 +1,13 @@
-﻿using CongApp.Pages.Admin.Meeting;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CongApp.Pages
 {
-    public class AddMeetingModel : PageModel
+    public class CreateModel : PageModel
     {
         private readonly CongApp.Data.CongAppDbContext _context;
 
-        public AddMeetingModel(CongApp.Data.CongAppDbContext context)
+        public CreateModel(CongApp.Data.CongAppDbContext context)
         {
             _context = context;
             AddNewMeetingRequest = new AddNewMeeting();
@@ -33,5 +32,11 @@ namespace CongApp.Pages
             await _context.SaveChangesAsync();
             return RedirectToPage("Index");
         }
+    }
+    public class AddNewMeeting
+    {
+        public string? Type { get; set; }
+        public DateTime Date { get; set; }
+        public string? Week { get; set; }
     }
 }

@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CongApp.Pages.Admin.Task
 {
-    public class TaskModel : PageModel
+    public class AssignmentModel : PageModel
     {
         [BindProperty]
-        public AddAssignment AddTaskRequest { get; set; }
+        public AddAssignment AddAssignment { get; set; }
 
         public void OnGet()
         {
