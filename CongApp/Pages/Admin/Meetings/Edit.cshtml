@@ -1,0 +1,59 @@
+﻿@page
+@model CongApp.Pages.Admin.Meetings.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container">
+    <h1>Edit Meeting</h1>
+
+    <form method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Meeting.Id" />
+        <!-- MEETING TYPE -->
+        <div class="row">
+            <div class="input-group mb-3">
+                <label asp-for="Meeting.Type" class="input-group-text">Type</label>
+                <select asp-for="Meeting.Type" class="form-select">
+                    <!-- NO NAME -->
+                    <option>Midweek</option>
+                    <option>Weekend</option>
+               </select>
+                <span asp-validation-for="Meeting.Type" class="text-danger"></span>
+            </div>
+        </div>
+        <!-- DATE SELECTION -->
+        <div class="row">
+            <div class="input-group mb-3">
+                <label asp-for="Meeting.Date" class="input-group-text">Date</label>
+                <input asp-for="Meeting.Date" type="date" class="form-control" placeholder="Date" /> <!-- NO NAME -->
+                <span asp-validation-for="Meeting.Date" class="text-danger"></span>
+            </div>
+        </div>
+        <!-- WEEK RANGE -->
+        <div class="input-group mb-3">
+            <label asp-for="Meeting.Week" class="input-group-text">Week of</label>
+                <select asp-for="Meeting.Week" class="form-select">
+                <!-- NO NAME -->
+                <option>April 24-30</option>
+                <option>May 1-7</option>
+            </select>
+            <span asp-validation-for="Meeting.Week" class="text-danger"></span>
+        </div>
+
+        <!-- SAVE/CANCEL -->
+        <div class="row">
+            <div class="btn-group">
+                <input type="submit" value="Save" class="btn btn-success" />
+                <a asp-page="./Index" class="btn btn-primary">Cancel</a>
+            </div>
+        </div>
+    </form>
+    @*<div>
+        <a asp-page="./Index">Back to List</a>
+    </div>*@
+</div>
+
+
+

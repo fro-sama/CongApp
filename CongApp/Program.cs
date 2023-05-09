@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 
 builder.Services.AddDbContext<CongAppDbContext>(options =>
-    options.UseInMemoryDatabase(databaseName: "CongAppDb")
+    options.UseSqlServer("name=ConnectionStrings:CongAppDb")
 );
 
 var app = builder.Build();

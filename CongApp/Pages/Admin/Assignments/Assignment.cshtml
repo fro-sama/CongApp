@@ -1,16 +1,16 @@
 ﻿@page
-@model CongApp.Pages.Admin.Task.TaskModel
+@model CongApp.Pages.Admin.Task.AssignmentModel
 @{
 }
 
 <div class="container">
     <form method="post">
-        <h1 class="mt-3">Add Tasks</h1>
+        <h1 class="mt-3">Add Assignments</h1>
         <!-- ASSIGNMENT -->
         <div class="row">
             <div class="input-group mb-3">
                 <span class="input-group-text">Assignment</span>
-                <select class="form-select" asp-for="AddTaskRequest.Assignment">
+                <select class="form-select" asp-for="AddAssignment.Assignment">
                     <option>Microphone Servant</option>
                     <option>Paragraph Reader</option>
                 </select>
@@ -20,7 +20,7 @@
         <div class="row">
             <div class="input-group mb-3">
                 <span class="input-group-text">Assignee</span>
-                <select class="form-select" asp-for="AddTaskRequest.Assignee">
+                <select class="form-select" asp-for="AddAssignment.Assignee">
                     <option>Trae Young</option>
                     <option>Randy Sagum</option>
                     <option>Ronald Sagum</option>
@@ -31,7 +31,7 @@
         <div class="row">
             <div class="input-group mb-3">
                 <span class="input-group-text">Partner</span>
-                <select class="form-select" asp-for="AddTaskRequest.Partner">
+                <select class="form-select" asp-for="AddAssignment.Partner">
                     <option>Trae Young</option>
                     <option>Randy Sagum</option>
                     <option>Ronald Sagum</option>
@@ -43,7 +43,7 @@
         <div class="row">
             <div class="btn-group">
                 <button type="submit" class="btn btn-success">Save</button>
-                <button type="button" class="btn btn-primary">Cancel</button>
+                <a asp-page="/admin/meetings/Index" class="btn btn-primary">Cancel</a>
             </div>
         </div>
     </form>

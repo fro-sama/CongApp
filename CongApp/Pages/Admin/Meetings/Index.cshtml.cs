@@ -8,13 +8,13 @@ using Microsoft.EntityFrameworkCore;
 using CongApp.Data;
 using CongApp.Models;
 
-namespace CongApp.Pages
+namespace CongApp.Pages.Meetings
 {
-    public class MeetingsModel : PageModel
+    public class IndexModel : PageModel
     {
         private readonly CongApp.Data.CongAppDbContext _context;
 
-        public MeetingsModel(CongApp.Data.CongAppDbContext context)
+        public IndexModel(CongApp.Data.CongAppDbContext context)
         {
             _context = context;
         }
