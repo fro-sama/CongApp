@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CongApp.Pages
+namespace CongApp.Pages.Admin.Meetings
 {
     public class CreateModel : PageModel
     {

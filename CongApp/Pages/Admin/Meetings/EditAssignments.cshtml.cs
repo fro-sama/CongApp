@@ -30,7 +30,7 @@ namespace CongApp.Pages.Admin.Meetings
                 return NotFound();
             }
 
-            var meeting =  await _context.Meetings.FirstOrDefaultAsync(m => m.Id == id);
+            var meeting =  await _context.Meetings.Include(i=>i.Assignments).FirstOrDefaultAsync(m => m.Id == id);
             if (meeting == null)
             {
                 return NotFound();
