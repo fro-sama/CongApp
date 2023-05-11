@@ -1,0 +1,83 @@
+﻿@page
+@model CongApp.Pages.Admin.Assignments.CreateModel
+@{
+    Layout = "_DashboardLayout";
+}
+
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        Meeting <b>@Html.DisplayFor(model => model.Meeting.Week)</b>
+    </div>
+    <div class="card-body">
+
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Meeting.Type)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Meeting.Type)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Meeting.Date)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Meeting.Date)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Meeting.Week)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Meeting.Week)
+            </dd>
+
+        </dl>
+
+       
+        <div class="container-fluid border-1">
+            <form method="post">
+                <!-- ASSIGNMENT -->
+                <h6>New Assignments</h6>
+                <div class="row">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Assignment</span>
+                        <select class="form-select" asp-for="AddAssignment.Assignment">
+                            <option>Microphone Servant</option>
+                            <option>Paragraph Reader</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- ASSIGNEE -->
+                <div class="row">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Assignee</span>
+                        <select class="form-select" asp-for="AddAssignment.Assignee">
+                            <option>Trae Young</option>
+                            <option>Randy Sagum</option>
+                            <option>Ronald Sagum</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- PARTNER -->
+                <div class="row">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Partner</span>
+                        <select class="form-select" asp-for="AddAssignment.Partner">
+                            <option>Trae Young</option>
+                            <option>Randy Sagum</option>
+                            <option>Ronald Sagum</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- SAVE/CANCEL -->
+                <div class="row">
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-success">Save</button>
+                        <a asp-page="/admin/meetings/Index" class="btn btn-primary">Cancel</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

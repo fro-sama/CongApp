@@ -1,4 +1,4 @@
-﻿namespace CongApp.Pages.Admin.Task
+﻿namespace CongApp.Pages.Admin
 {
     public class AddAssignment
     {
