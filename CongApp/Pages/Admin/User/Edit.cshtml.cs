@@ -9,50 +9,33 @@ using Microsoft.EntityFrameworkCore;
 using CongApp.Data;
 using CongApp.Models;
 
-namespace CongApp.Pages.Admin.Meetings
+namespace CongApp.Pages.Admin.User
 {
-    public class EditAssignmentsModel : PageModel
+    public class EditModel : PageModel
     {
         private readonly CongApp.Data.CongAppDbContext _context;
 
-        public EditAssignmentsModel(CongApp.Data.CongAppDbContext context)
+        public EditModel(CongApp.Data.CongAppDbContext context)
         {
             _context = context;
         }
 
         [BindProperty]
-        public Meeting Meeting { get; set; } = default!;
+        public Assignee Assignee { get; set; } = default!;
 
-        [BindProperty]
-        public List<SelectListItem> Assignees { get; set; }
-
-        [BindProperty]
-        public List<SelectListItem> Duties { get; set; }
         public async Task<IActionResult> OnGetAsync(Guid? id)
         {
-            if (id == null || _context.Meetings == null)
+            if (id == null || _context.Assignee == null)
             {
                 return NotFound();
             }
 
-            var meeting =  await _context.Meetings.Include(i=>i.Assignments).FirstOrDefaultAsync(m => m.Id == id);
-            Assignees = await _context.Assignee.Select(i=> new SelectListItem
-            {
-                Text = i.Name,
-                Value = i.Name
-            }).ToListAsync();
-
-            Duties = await _context.Duty.Select(i => new SelectListItem
-            {
-                Text = i.Name,
-                Value = i.Name
-            }).ToListAsync();
-
-            if (meeting == null)
+            var assignee =  await _context.Assignee.FirstOrDefaultAsync(m => m.Id == id);
+            if (assignee == null)
             {
                 return NotFound();
             }
-            Meeting = meeting;
+            Assignee = assignee;
             return Page();
         }
 
@@ -65,7 +48,7 @@ namespace CongApp.Pages.Admin.Meetings
                 return Page();
             }
 
-            _context.Attach(Meeting).State = EntityState.Modified;
+            _context.Attach(Assignee).State = EntityState.Modified;
 
             try
             {
@@ -73,7 +56,7 @@ namespace CongApp.Pages.Admin.Meetings
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!MeetingExists(Meeting.Id))
+                if (!AssigneeExists(Assignee.Id))
                 {
                     return NotFound();
                 }
@@ -86,9 +69,9 @@ namespace CongApp.Pages.Admin.Meetings
             return RedirectToPage("./Index");
         }
 
-        private bool MeetingExists(Guid id)
+        private bool AssigneeExists(Guid id)
         {
-          return (_context.Meetings?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Assignee?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

@@ -4,6 +4,7 @@ using CongApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CongApp.Migrations
 {
     [DbContext(typeof(CongAppDbContext))]
-    partial class CongAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230516083253_addedassigneecrud")]
+    partial class addedassigneecrud
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -60,21 +63,6 @@ namespace CongApp.Migrations
                     b.HasIndex("MeetingId");
 
                     b.ToTable("Assignments");
-                });
-
-            modelBuilder.Entity("CongApp.Models.Duty", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Duty");
                 });
 
             modelBuilder.Entity("CongApp.Models.Meeting", b =>

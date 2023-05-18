@@ -113,6 +113,8 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Other Pages:</h6>
                         <a class="collapse-item" href="404.html">404 Page</a>
+                        <a class="collapse-item @(Accessor.HttpContext.Request.Path.Value.Contains("/Admin/User") ? "active" : "" )" asp-page="/admin/User/Index">Users</a>
+                        <a class="collapse-item @(Accessor.HttpContext.Request.Path.Value.Contains("/Admin/Duties") ? "active" : "" )" asp-page="/admin/Duties/Index">Duties</a>
                         <a class="collapse-item @(Accessor.HttpContext.Request.Path.Value.Contains("/Admin/Meetings") ? "active" : "" )" asp-page="/admin/meetings/Index">Meetings</a>
                     </div>
                 </div>

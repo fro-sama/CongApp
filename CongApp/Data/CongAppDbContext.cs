@@ -12,5 +12,11 @@ namespace CongApp.Data
         public DbSet<Meeting> Meetings { get; set; }
 
         public DbSet<Assignment> Assignments { get; set; }
+
+
+        public DbSet<Assignee>? Assignee { get; set; }
+
+
+        public DbSet<CongApp.Models.Duty>? Duty { get; set; }
     }
 }
