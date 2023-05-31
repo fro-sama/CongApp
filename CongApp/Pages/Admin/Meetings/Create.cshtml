@@ -12,9 +12,9 @@
         <form method="post">
         <!-- MEETING TYPE -->
         <div class="row">
-            <div class="input-group mb-3">
+            <div class="input-group mb-3 col-3">
                 <span class="input-group-text">Type</span>
-                <select class="form-select" asp-for="AddNewMeetingRequest.Type">
+                <select class="form-control" asp-for="AddNewMeetingRequest.Type">
                     <option>Midweek</option>
                     <option>Weekend</option>
                 </select>
@@ -22,9 +22,9 @@
         </div>
     <!-- WEEK RANGE -->
         <div class="row">
-            <div class="input-group mb-3">
+            <div class="input-group mb-3 col-3">
                 <span class="input-group-text">Week of</span>
-                <select class="form-select" asp-for="AddNewMeetingRequest.Week">
+                <select class="form-control" asp-for="AddNewMeetingRequest.Week">
                     <option>April 24-30</option>
                     <option>May 1-7</option>
                 </select>
@@ -32,9 +32,9 @@
         </div>
         <!-- DATE SELECTION -->
         <div class="row">
-            <div class="input-group mb-3">
+            <div class="input-group mb-3 col-3">
                 <span class="input-group-text">Date</span>
-                <input type="date" class="form-control" placeholder="Date" asp-for="AddNewMeetingRequest.Date" />
+                <input type="date" class="form-control" value="@DateTime.Now" placeholder="Date" asp-for="AddNewMeetingRequest.Date" />
             </div>
         </div>
         
