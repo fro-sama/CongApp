@@ -78,6 +78,12 @@
                                             </span>
                                             <span class="text">Edit</span>
                                         </a>
+                                        <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-outline-primary btn-icon-split">
+                                            <span class="icon">
+                                                <i class="fas fa-trash"></i>
+                                            </span>
+                                            <span class="text">Delete</span>
+                                        </a>
                                     </div>
                                 </td>
                             </tr>
@@ -130,6 +136,12 @@
                                                 <i class="fas fa-edit"></i>
                                             </span>
                                             <span class="text">Edit</span>
+                                        </a>
+                                        <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-outline-primary btn-icon-split">
+                                            <span class="icon">
+                                                <i class="fas fa-delete"></i>
+                                            </span>
+                                            <span class="text">Delete</span>
                                         </a>
                                     </div>
                                 </td>
