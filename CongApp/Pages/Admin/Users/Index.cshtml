@@ -1,12 +1,12 @@
 ﻿@page
-@model CongApp.Pages.Admin.User.IndexModel
+@model CongApp.Pages.User.IndexModel
 
 @{
-    Layout = "_DashboardLayout";
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Publishers
+</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -15,7 +15,13 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Assignee[0].Name)
+                @Html.DisplayNameFor(model => model.Assignee[0].FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assignee[0].LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assignee[0].Gender)
             </th>
             <th></th>
         </tr>
@@ -24,7 +30,13 @@
 @foreach (var item in Model.Assignee) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |

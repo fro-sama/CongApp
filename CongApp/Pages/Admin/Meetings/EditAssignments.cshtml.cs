@@ -38,8 +38,8 @@ namespace CongApp.Pages.Admin.Meetings
             var meeting =  await _context.Meetings.Include(i=>i.Assignments).FirstOrDefaultAsync(m => m.Id == id);
             Assignees = await _context.Assignee.Select(i=> new SelectListItem
             {
-                Text = i.Name,
-                Value = i.Name
+                Text = i.FirstName,
+                Value = i.FirstName
             }).ToListAsync();
 
             Duties = await _context.Duty.Select(i => new SelectListItem
