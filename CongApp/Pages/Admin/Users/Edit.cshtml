@@ -1,0 +1,41 @@
+﻿@page
+@model CongApp.Pages.User.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Assignee</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Assignee.Id" />
+            <div class="form-group">
+                <label asp-for="Assignee.FirstName" class="control-label"></label>
+                <input asp-for="Assignee.FirstName" class="form-control" />
+                <span asp-validation-for="Assignee.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Assignee.LastName" class="control-label"></label>
+                <input asp-for="Assignee.LastName" class="form-control" />
+                <span asp-validation-for="Assignee.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Assignee.Gender" class="control-label"></label>
+                <input asp-for="Assignee.Gender" class="form-control" />
+                <span asp-validation-for="Assignee.Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>

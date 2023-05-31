@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CongApp.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CongApp.Pages.Admin.Meetings
@@ -23,14 +24,26 @@ namespace CongApp.Pages.Admin.Meetings
 
         public async Task<IActionResult> OnPost() 
         {
-            _context.Meetings.Add(
-                new Models.Meeting { 
-                    Date = AddNewMeetingRequest.Date,
-                    Type = AddNewMeetingRequest.Type,   
-                    Week = AddNewMeetingRequest.Week,   
-            });
+
+            var meeting = new Models.Meeting
+            {
+                Date = AddNewMeetingRequest.Date,
+                Type = AddNewMeetingRequest.Type,
+                Week = AddNewMeetingRequest.Week,
+            };
+
+            if(meeting.Type == "Midweek")
+            {
+                meeting = MeetingFactory.CreateMidWeek(AddNewMeetingRequest.Date, AddNewMeetingRequest.Week);
+            };
+            _context.Meetings.Add(meeting);
             await _context.SaveChangesAsync();
-            return RedirectToPage("Index");
+
+            if(meeting.Type == "Midweek")
+            {
+                return RedirectToPage("Midweek", new { id = meeting.Id });
+            }
+            return RedirectToPage("Details", new { id = meeting.Id });
         }
     }
     public class AddNewMeeting

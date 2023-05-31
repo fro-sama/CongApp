@@ -1,0 +1,207 @@
+﻿@page
+@model CongApp.Pages.Meetings.MidweekModel
+@{
+    Layout = "_DashboardLayout";
+}
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h1>
+            Iskedyul ng Pulong sa Gitnang Sanlinggo
+        </h1>
+    </div>
+    <div class="card-body">
+
+    
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Meeting.Type)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Meeting.Type)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Meeting.Date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Meeting.Date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Meeting.Week)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Meeting.Week)
+        </dd>
+       
+    </dl>
+       
+        <h4 style="background-color:darkgray; color:antiquewhite; padding:5px;" >KAYAMANAN MULA SA SALITA NG DIYOS
+           
+        </h4>
+        <table class="table table-bordered">
+            <tr>
+                <th >Assignment
+                </th>
+             
+                <th>Conductor/Speaker</th>
+                <th>Assistant/Reader</th>
+            </tr>
+            @foreach (var assignment in Model.Meeting.Assignments.Where(i => i.Section == "KAYAMANAN MULA SA SALITA NG DIYOS"))
+            {
+                <tr>
+                    <td >
+                        <span class="icon">
+                            <i class="fas fa-microphone"></i>
+                        </span>@assignment.Task
+                    </td>
+                    <td>
+                        <a data-toggle="modal" data-target="#exampleModalCenter">
+                            <span class="icon">
+                                <i class="fas fa-user" "></i>
+                            </span>
+                        </a>@assignment.Assignee
+                    </td>
+                    <td>
+                        <a data-toggle="modal" data-target="#exampleModalCenter">
+                            <span class="icon">
+                                <i class="fas fa-user" "></i>
+                            </span>
+                        </a>@assignment.Partner
+                    </td>
+                </tr>
+            }
+        </table>
+        <br />
+        <h4 style="background-color:darkgoldenrod; color:antiquewhite; padding:5px;">MAGING MAHUSAY SA MINISTERYO
+        </h4>
+        <table class="table table-bordered">
+            <tr>
+                <th>
+                    Assignment
+                </th>
+                <th>Student</th>
+                <th>Assistant</th>
+            </tr>
+            @foreach (var assignment in Model.Meeting.Assignments.Where(i => i.Section == "MAGING MAHUSAY SA MINISTERYO"))
+            {
+                <tr>
+                    <td>
+                        <span class="icon">
+                            <i class="fas fa-tasks"></i>
+                        </span>@assignment.Task
+                    </td>
+                    <td>
+                        <a data-toggle="modal" data-target="#exampleModalCenter">
+                            <span class="icon">
+                                <i class="fas fa-user" "></i>
+                            </span>
+                        </a>@assignment.Assignee
+                    </td>
+                    <td>
+                        <a data-toggle="modal" data-target="#exampleModalCenter">
+                            <span class="icon">
+                                <i class="fas fa-user" "></i>
+                            </span>
+                        </a>
+                       @assignment.Partner
+                    </td>
+                </tr>
+            }
+        </table>
+        <br />
+        <h4 style="background-color:maroon; color:antiquewhite; padding:5px;">PAMUMUHAY BILANG KRISTYANO
+        </h4>
+        <table class="table table-bordered">
+            <tr>
+                <th>
+                    Assignment
+                </th>
+                <th>Conductor/Speaker</th>
+                <th>Assistant</th>
+            </tr>
+            @foreach (var assignment in Model.Meeting.Assignments.Where(i => i.Section == "PAMUMUHAY BILANG KRISTYANO"))
+            {
+                <tr>
+                    <td>
+                        <span class="icon">
+                            <i class="fas fa-tasks"></i>
+                        </span>@assignment.Task
+                    </td>
+                    <td>
+                        <a data-toggle="modal" data-target="#exampleModalCenter">
+                            <span class="icon">
+                                <i class="fas fa-user" "></i>
+                            </span>
+                        </a>@assignment.Assignee
+                    </td>
+                    <td>
+                        <a data-toggle="modal" data-target="#exampleModalCenter">
+                            <span class="icon">
+                                <i class="fas fa-user" "></i>
+                            </span>
+                        </a>@assignment.Partner
+                    </td>
+                </tr>
+            }
+        </table>
+    
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Assignee</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="container-fluid" >
+                <!-- ASSIGNEE -->
+                <select class="form-control form-select" placeholder="Select" id="assignee" asp-items="@Model.Assignees">
+                            <option></option>
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="onSaveNewAssignment()">Assign</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+
+    function onSaveNewAssignment() {
+        const task = document.getElementById('task').value;
+        const assignee = document.getElementById('assignee').value;
+        const partner = document.getElementById('partner').value;
+        const meetingId = document.getElementById('meetingId').value;
+
+        const newAssignments = {
+
+            'task': task,
+            'assignee': assignee,
+            'partner': partner,
+            'meetingId': meetingId
+        };
+
+        //console.log(newAssignments);
+
+        let post = JSON.stringify(newAssignments);
+
+        const xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "https://localhost:7290/api/assignments", true);
+        xhttp.setRequestHeader('Content-type', 'application/json; charset=UTF-8');
+        xhttp.onload = function () {
+            console.log(this.responseText);
+            location.reload();
+        }
+        xhttp.send(post);
+    }
+
+</script>

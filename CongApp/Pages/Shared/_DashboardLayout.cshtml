@@ -36,7 +36,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Yangca<sup>Co</sup></div>
+                <div class="sidebar-brand-text mx-3">Yangca<sup>Cong</sup></div>
             </a>
 
             <!-- Divider -->
@@ -113,7 +113,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Other Pages:</h6>
                         <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item @(Accessor.HttpContext.Request.Path.Value.Contains("/Admin/User") ? "active" : "" )" asp-page="/admin/User/Index">Users</a>
+                        <a class="collapse-item @(Accessor.HttpContext.Request.Path.Value.Contains("/Admin/Users") ? "active" : "" )" asp-page="/admin/Users/Index">Publishers</a>
                         <a class="collapse-item @(Accessor.HttpContext.Request.Path.Value.Contains("/Admin/Duties") ? "active" : "" )" asp-page="/admin/Duties/Index">Duties</a>
                         <a class="collapse-item @(Accessor.HttpContext.Request.Path.Value.Contains("/Admin/Meetings") ? "active" : "" )" asp-page="/admin/meetings/Index">Meetings</a>
                     </div>
@@ -374,7 +374,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Copyright &copy; Yangca Congregation 2023</span>
                     </div>
                 </div>
             </footer>

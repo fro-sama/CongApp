@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using CongApp.Data;
 using CongApp.Models;
 
-namespace CongApp.Pages.Admin.User
+namespace CongApp.Pages.User
 {
     public class EditModel : PageModel
     {
